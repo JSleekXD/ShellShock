@@ -2,18 +2,22 @@
 using UnityEngine.UI;
 using System.Collections;
 
-
-public class DisplayAmmoCount : MonoBehaviour
+namespace ShellShock
 {
-    public Text ammoCount;
-    public int playerID;
-
-    public Player player;
-
-    void Update()
+    public class DisplayAmmoCount : MonoBehaviour
     {
-		ammoCount.text = player.mEquippedWeapon.mAmmoRemaining.ToString ();
-    }
+        public Text ammoCount;
+        public int playerID;
 
+        public Player player;
+
+        void Update()
+        {
+            if (player.mEquippedWeapon)
+            {
+                ammoCount.text = player.mEquippedWeapon.RemainingAmmo.ToString();
+            }
+        }
+    }
 }
 
